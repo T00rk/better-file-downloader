@@ -24,6 +24,25 @@ await downloadAUrl(
 );
 ```
 
+Set AccessToken.
+
+```js
+import { downloadAUrl } from 'better-file-downloads';
+const { downloadAUrl } = require('better-file-downloads');
+
+const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+
+await downloadAUrl(
+  'https://s3.amazonaws.com/my-uploaded-files/images/cat.jpg',
+  {
+    fileName: 'my-new-file',
+    extension: '.pdf',
+    contentType: 'application/pdf',
+  },
+  accessToken
+);
+```
+
 Or if you prefer to pass in a blob.
 
 ```js
