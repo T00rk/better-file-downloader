@@ -20,8 +20,13 @@ const download = (blob: Blob | Uint8Array, fileInfo: FileData): void => {
   }
 };
 
-export const downloadAUrl = async (fileUrl: string, fileInfo: FileData) => {
-  const response = await fetch(fileUrl, { method: 'GET' });
+export const downloadAUrl = async (fileUrl: string, fileInfo: FileData, accessToken: String) => {
+  const headers = new Headers
+  ({
+    "Authorization": `Bearer ${accessToken}`
+  });
+
+  const response = await fetch(fileUrl, { method: 'GET', headers });
   const data = await response.blob();
 
   download(data, fileInfo);
